@@ -1,0 +1,19 @@
+/* Home.css */
+
+.home {
+    padding: 20px;
+  }
+  
+  .home h1 {
+    text-align: center;
+    font-family: 'Righteous', sans-serif;
+    color: #f76a43;
+    margin-bottom: 20px;
+  }
+  
+  .race-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  

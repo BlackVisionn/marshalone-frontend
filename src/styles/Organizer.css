@@ -1,0 +1,53 @@
+/* Organizer.css */
+
+.organizer-container {
+    padding: 20px;
+  }
+  
+  .organizer-container h1 {
+    text-align: center;
+    font-family: 'Righteous', sans-serif;
+    color: #f76a43;
+    margin-bottom: 20px;
+  }
+  
+  .organizer-container p {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .organizer-container ul {
+    padding-left: 20px;
+  }
+  
+  .organizer-container ul li {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  
+  .organizer-container a {
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    color: #f76a43;
+    text-decoration: none;
+    margin-bottom: 10px;
+  }
+  
+  .organizer-container a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .organizer-container {
+      padding: 10px;
+    }
+  
+    .organizer-container h1 {
+      font-size: 1.5em;
+    }
+  }
+  
