@@ -1,10 +1,14 @@
-// RaceCard.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaCalendarAlt, FaMotorcycle, FaUsers } from 'react-icons/fa';
 import '../styles/RaceCard.css';
+import { Race } from '../types/types';
 
-const RaceCard = ({ race }) => {
+interface RaceCardProps {
+  race: Race;
+}
+
+const RaceCard: React.FC<RaceCardProps> = ({ race }) => {
   const navigate = useNavigate();
 
   const handleRegisterClick = () => {

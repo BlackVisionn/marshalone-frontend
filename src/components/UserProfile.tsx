@@ -1,8 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/UserProfile.css';
+import { User } from '../types/types';
 
-const UserProfile = ({ user }) => {
+interface UserProfileProps {
+  user: User;
+}
+
+const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
   return (
     <div className="user-profile">
       <h2>Профиль пользователя</h2>
@@ -14,7 +19,7 @@ const UserProfile = ({ user }) => {
           <p><strong>Номер телефона:</strong> {user.phoneNumber}</p>
           <p><strong>Дата рождения:</strong> {user.birthDate}</p>
           <p><strong>Возраст:</strong> {user.age}</p>
-          <p><strong>Гражданство:</strong> {user.nationality}</p>          
+          <p><strong>Гражданство:</strong> {user.nationality}</p>
         </div>
       </div>
       <Link to="/profile-setup" className="edit-profile-button">Редактировать профиль</Link>

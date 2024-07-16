@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import '../styles/RegistrationModal.css';
+import { Race } from '../types/types';
 
-const RegistrationModal = ({ race, closeModal }) => {
+interface RegistrationModalProps {
+  race: Race;
+  closeModal: () => void;
+}
+
+const RegistrationModal: React.FC<RegistrationModalProps> = ({ race, closeModal }) => {
   const [teamName, setTeamName] = useState('');
   const [desiredNumber, setDesiredNumber] = useState('');
 

@@ -1,9 +1,9 @@
-// components/Home.js
-
+// src/components/Home.tsx
 import React from 'react';
 import RaceCard from './RaceCard';
+import { Race } from '../types/types';
 
-export const races = [
+export const races: Race[] = [
   {
     image: 'https://medialounge.ru/wp-content/uploads/2023/12/kupit-kategoriyu-A.png',
     name: 'Гонка 2',
@@ -11,7 +11,7 @@ export const races = [
     city: 'Волгоград',
     date: '26.06.2024',
     type: 'Экстрим-эндуро на мотоциклах',
-    participants: '26',
+    participants: 26,
     participantsList: [
       'Иван Иванов',
       'Петр Петров',
@@ -23,7 +23,7 @@ export const races = [
       'Антон Антонов',
       'Евгений Евгеньев',
       'Владимир Владимиров',
-    ]
+    ],
   },
   {
     image: 'https://medialounge.ru/wp-content/uploads/2023/12/kupit-kategoriyu-A.png',
@@ -32,27 +32,27 @@ export const races = [
     city: 'moscow',
     date: '26.05.2024',
     type: 'Экстрим на мотоциклах',
-    participants: '10',
+    participants: 10,
     participantsList: [
       'Иван Иванов',
       'Петр Петров',
-      'Сергей Сергеев',      
-    ]
+      'Сергей Сергеев',
+    ],
   },
   // Другие гонки...
 ];
 
-const Home = () => {
+const Home: React.FC = () => {
   return (
     <div className="home">
       <h1>Главная страница</h1>
       <div className="race-cards">
         {races.map((race, index) => (
-          <RaceCard key={index} race={race} index={index} />
+          <RaceCard key={index} race={race} />
         ))}
       </div>
     </div>
   );
-}
+};
 
 export default Home;

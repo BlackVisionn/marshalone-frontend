@@ -1,11 +1,26 @@
+// src/components/LoginModal.tsx
 import React, { useState } from 'react';
 import '../styles/LoginModal.css';
+import { useStore } from '../store/store';
 
-const LoginModal = ({ closeModal }) => {
+interface LoginModalProps {
+  closeModal: () => void;
+  onLogin: () => void;
+}
+
+const LoginModal: React.FC<LoginModalProps> = ({ closeModal }) => {
   const [isLogin, setIsLogin] = useState(true);
+  const { login } = useStore();
 
   const toggleForm = () => {
     setIsLogin(!isLogin);
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // Implement authentication logic
+    login({ fullName: 'Demo User', avatar: 'default-avatar.png' });
+    closeModal();
   };
 
   return (
@@ -13,7 +28,7 @@ const LoginModal = ({ closeModal }) => {
       <div className="modal" onClick={(e) => e.stopPropagation()}>
         <button className="close-button" onClick={closeModal}>X</button>
         <h2>{isLogin ? 'Вход' : 'Регистрация'}</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           {isLogin ? (
             <>
               <label htmlFor="email">Email:</label>
