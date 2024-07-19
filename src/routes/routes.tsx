@@ -1,24 +1,21 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Home from '../components/Home';
 import Organizer from '../components/Organizer';
-import RaceDetails from '../components/RaceDetails';
 import ProfileSetup from '../components/ProfileSetup';
+import RaceDetails from '../components/RaceDetails';
 import UserProfile from '../components/UserProfile';
-import { User } from '../types/types';
+import NotFound from '../components/NotFound';
 
-interface AppRoutesProps {
-  user: User;
-}
-
-const AppRoutes: React.FC<AppRoutesProps> = ({ user }) => {
+const AppRoutes: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/organizer" element={<Organizer />} />
-      <Route path="/race-details" element={<RaceDetails />} />
       <Route path="/profile-setup" element={<ProfileSetup />} />
-      <Route path="/profile" element={<UserProfile user={user} />} />
+      <Route path="/race-details/:raceName" element={<RaceDetails />} />
+      <Route path="/profile" element={<UserProfile user={null} />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };

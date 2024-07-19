@@ -11,25 +11,24 @@ interface RaceCardProps {
 const RaceCard: React.FC<RaceCardProps> = ({ race }) => {
   const navigate = useNavigate();
 
-  const handleRegisterClick = () => {
-    navigate('/race-details', { state: { race } });
+  const handleCardClick = () => {
+    navigate(`/race-details/${race.name}`, { state: race });
   };
 
-  const { image, name, organizer, city, date, type, participants } = race;
-
   return (
-    <div className="race-card">
-      <div className="race-card-left">
-        <img src={image} alt={name} className="race-image" />
-        <button className="register-button" onClick={handleRegisterClick}>Зарегистрироваться</button>
-      </div>
-      <div className="race-card-right">
-        <h2>{name}</h2>
-        <p><FaCalendarAlt /> {date}</p>
-        <p><FaMotorcycle /> {type}</p>
-        <p><FaUsers /> {participants}</p>
-        <p><strong>Организатор:</strong> {organizer}</p>
-        <p><strong>Город:</strong> {city}</p>
+    <div className="race-card" onClick={handleCardClick}>
+      <img src={race.image} alt={race.name} className="race-image" />
+      <h3 className="race-name">{race.name}</h3>
+      <div className="race-info">
+        <p>
+          <FaCalendarAlt className="icon" /> {race.date}
+        </p>
+        <p>
+          <FaMotorcycle className="icon" /> {race.type}
+        </p>
+        <p>
+          <FaUsers className="icon" /> {race.participants}
+        </p>
       </div>
     </div>
   );

@@ -1,12 +1,11 @@
-// src/components/RaceDetails.tsx
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import { races } from './Home';
+import { useLocation } from 'react-router-dom';
 import '../styles/RaceDetails.css';
+import { Race } from '../types/types';
 
 const RaceDetails: React.FC = () => {
-  const { raceName } = useParams<{ raceName: string }>();
-  const race = races.find((r) => r.name === raceName);
+  const { state } = useLocation();
+  const race = state as Race;
 
   if (!race) {
     return <div>Гонка не найдена</div>;

@@ -1,17 +1,14 @@
-// src/components/Header.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Header.css';
-import { useStore } from '../store/store';
+import { useAuthStore } from '../store/authStore';
+import { useModalStore } from '../store/modalStore';
 
-interface HeaderProps {
-  openModal: () => void;
-  onLogout: () => void;
-  isAuthenticated: boolean;
-}
-
-const Header: React.FC<HeaderProps> = ({ openModal, isAuthenticated }) => {
-  const { user, logout } = useStore();
+const Header: React.FC = () => {
+  const user = useAuthStore((state) => state.user);
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+  const logout = useAuthStore((state) => state.logout);
+  const openLoginModal = useModalStore((state) => state.openLoginModal);
 
   return (
     <nav className="navbar">
@@ -31,7 +28,7 @@ const Header: React.FC<HeaderProps> = ({ openModal, isAuthenticated }) => {
           </div>
         </div>
       ) : (
-        <button className="navbar-button" onClick={openModal}>Войти</button>
+        <button className="navbar-button" onClick={openLoginModal}>Войти</button>
       )}
     </nav>
   );

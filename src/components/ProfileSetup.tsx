@@ -1,4 +1,3 @@
-// src/components/ProfileSetup.tsx
 import React, { useState } from 'react';
 import '../styles/ProfileSetup.css';
 

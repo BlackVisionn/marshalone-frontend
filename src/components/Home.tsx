@@ -1,4 +1,3 @@
-// src/components/Home.tsx
 import React from 'react';
 import RaceCard from './RaceCard';
 import { Race } from '../types/types';

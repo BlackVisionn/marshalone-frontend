@@ -1,16 +1,14 @@
-// src/components/LoginModal.tsx
 import React, { useState } from 'react';
 import '../styles/LoginModal.css';
-import { useStore } from '../store/store';
+import { useAuthStore } from '../store/authStore';
 
 interface LoginModalProps {
   closeModal: () => void;
-  onLogin: () => void;
 }
 
 const LoginModal: React.FC<LoginModalProps> = ({ closeModal }) => {
   const [isLogin, setIsLogin] = useState(true);
-  const { login } = useStore();
+  const login = useAuthStore((state) => state.login);
 
   const toggleForm = () => {
     setIsLogin(!isLogin);
@@ -18,8 +16,16 @@ const LoginModal: React.FC<LoginModalProps> = ({ closeModal }) => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Implement authentication logic
-    login({ fullName: 'Demo User', avatar: 'default-avatar.png' });
+    const demoUser = {
+      fullName: 'Demo User',
+      city: 'Demo City',
+      phoneNumber: '123456789',
+      birthDate: '1990-01-01',
+      age: 30,
+      nationality: 'Demo Nationality',
+      avatar: 'default-avatar.png'
+    };
+    login(demoUser);
     closeModal();
   };
 
